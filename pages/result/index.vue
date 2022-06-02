@@ -30,7 +30,6 @@
         <Button @click="socialShare">
           Download
         </Button>
-        <img src="images/cards/ballast.jpg" />
       </div>      
     </footer>
   </section>
@@ -43,8 +42,6 @@ import Button from '~/components/Button'
 import IconButton from '~/components/IconButton'
 import Result from '~/components/Result'
 
-// import TestImage from '../../static/images/cards/ballast.jpg'
-
 export default {
   components: { Button, IconButton, Result },
   methods: {
@@ -52,21 +49,26 @@ export default {
       download(`/images/cards/${this.$store.getters.symbol.toLowerCase()}.jpg`)
     },
     socialShare() {
+      console.log(Result.data)
+      let symbolString = this.$store.getters.symbol.toLowerCase()
       let img = document.createElement('img')
-      img.src = `images/cards/ballast.jpg`
+      img.src = `images/cards/${symbolString}.jpg`
 
       fetch(img.src)
         .then(res => res.blob())
         .then(blob => {
-          let file = [ new File([blob], 'ballast.jpg', { type: 'image/jpg' }) ]
+          let file = [ new File([blob], `symbol.jpg`, { type: 'image/jpeg' }) ]
           console.log(file)
           if (navigator.canShare && navigator.canShare({ files: file })) {
             navigator.share({ 
               files: file,
-              title: 'Nothing More',
-              text: 'Spirits Test Result'
+              title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
+              text: `Nothing More`
             })
-            .then(() => console.log('Share was successful'))
+            .then(() => {
+              console.log('Share was successful')
+              this.download()
+          })
             .catch((error) => console.log('Sharing failed', error))
           } else {
             console.log('Please enable file sharing')
