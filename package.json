@@ -1,0 +1,22 @@
+{
+  "name": "spirits-test",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "start": "nuxt start"
+  },
+  "dependencies": {
+    "contentful": "^8.1.7",
+    "downloadjs": "^1.4.7",
+    "geometric": "^2.2.5",
+    "howler": "^2.2.3",
+    "nuxt": "^2.14.12",
+    "vee-validate": "^3.4.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "autoprefixer": "^9",
+    "postcss": "^7"
+  }
+}

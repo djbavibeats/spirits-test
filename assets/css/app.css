@@ -1,0 +1,37 @@
+html, body, #__nuxt, #__layout, main, section{
+  @apply h-full w-full;
+  touch-action: manipulation;
+}
+
+main{
+
+}
+
+body{
+  @apply bg-cover bg-center bg-shadow font-caslon text-bone;
+  background-image: url(/images/background.jpg);
+}
+
+section{
+  @apply flex items-center justify-center;
+}
+
+article{
+  @apply gap-4 grid grid-flow-row-dense items-center justify-items-center md:max-w-screen-sm px-4 w-full;
+}
+
+article h1{
+  @apply leading-none text-blood text-2xl uppercase;
+}
+
+article p{
+  @apply leading-normal text-center text-lg;
+}
+
+header{
+  @apply absolute border-b border-blood flex h-12 items-center justify-center left-0 px-4 text-sm top-0 w-full;
+}
+
+footer{
+  @apply absolute bottom-4 flex justify-center left-0 px-4 w-full;
+}
