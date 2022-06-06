@@ -28,6 +28,7 @@ export default {
 
     // Store symbols
     this.symbol = symbols.find(symbol => {
+      console.log(symbol)
       return symbol.fields.title == this.$store.getters.symbol
     })
 

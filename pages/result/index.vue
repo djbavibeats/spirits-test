@@ -28,7 +28,7 @@
         </IconButton> -->
 
         <Button @click="socialShare">
-          Download
+          Share
         </Button>
       </div>      
     </footer>
