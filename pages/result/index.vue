@@ -44,21 +44,22 @@ import Result from '~/components/Result'
 
 export default {
   components: { Button, IconButton, Result },
+  mounted() {
+    // console.log(this.$store.state.description)
+  },
   methods: {
     download() {
       download(`/images/cards/${this.$store.getters.symbol.toLowerCase()}.jpg`)
     },
     socialShare() {
-      console.log(Result.data)
       let symbolString = this.$store.getters.symbol.toLowerCase()
       let img = document.createElement('img')
       img.src = `images/cards/${symbolString}.jpg`
-
       fetch(img.src)
         .then(res => res.blob())
         .then(blob => {
           let file = [ new File([blob], `symbol.jpg`, { type: 'image/jpeg' }) ]
-          console.log(file)
+        
           if (navigator.canShare && navigator.canShare({ files: file })) {
             navigator.share({ 
               files: file,
@@ -75,9 +76,6 @@ export default {
           }
         })
     }
-  },
-  mounted() {
-    console.log(download)
   }
 }
 </script>

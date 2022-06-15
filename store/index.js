@@ -5,7 +5,8 @@ const geometric = require('geometric')
 export const state = () => ({
   currentQuestion: 0,
   answers: [],
-  size: 1080
+  size: 1080,
+  description: ''
 })
 
 export const getters = {  
@@ -126,5 +127,8 @@ export const mutations = {
   },
   updateAnswer(state, payload) {
     Vue.set(state.answers, payload.index, payload.value)
+  },
+  updateDescription(state, payload) {
+    console.log(payload)
   }
 }

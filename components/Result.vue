@@ -17,8 +17,12 @@ export default {
   components: { Card },
   data() {
     return {
-      symbol: null
+      symbol: null,
+      description: ''
     }
+  },
+  mounted() {
+
   },
   async fetch() {
     // Get all symbols
@@ -28,10 +32,11 @@ export default {
 
     // Store symbols
     this.symbol = symbols.find(symbol => {
-      console.log(symbol)
+      // this.$store.state.description = symbol.fields.description
       return symbol.fields.title == this.$store.getters.symbol
     })
-
+    
+    
   },
   fetchOnServer: false
 }
@@ -42,8 +47,8 @@ export default {
   @apply gap-4 grid grid-flow-col-dense overflow-x-scroll w-full;
   scroll-snap-type: x mandatory;
 }
-
 #cards::-webkit-scrollbar{
+
   @apply hidden;
 }
 
