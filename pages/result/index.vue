@@ -76,8 +76,8 @@ export default {
             navigator.share({ 
               files: file,
               // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
-              title: this.$store.state.description,
-              text: `Nothing More`
+              title: `Nothing More - Spirits Test - ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}`,
+              text: this.$store.state.description
             })
             .then(() => {
               console.log('Share was successful')
