@@ -82,7 +82,7 @@ export default {
             .then(() => {
               console.log('Share was successful')
               this.hasShared = true
-              this.download()
+              // this.download()
           })
             .catch((error) => console.log('Sharing failed', error))
           } else {
