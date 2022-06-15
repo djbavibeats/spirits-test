@@ -129,6 +129,6 @@ export const mutations = {
     Vue.set(state.answers, payload.index, payload.value)
   },
   updateDescription(state, payload) {
-    console.log(payload)
+    state.description = payload.description
   }
 }

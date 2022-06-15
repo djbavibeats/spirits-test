@@ -33,6 +33,11 @@ export default {
     // Store symbols
     this.symbol = symbols.find(symbol => {
       // this.$store.state.description = symbol.fields.description
+      if (symbol.fields.title == this.$store.getters.symbol) {
+        this.$store.commit('updateDescription', {
+            description: symbol.fields.description
+        })
+      }
       return symbol.fields.title == this.$store.getters.symbol
     })
     

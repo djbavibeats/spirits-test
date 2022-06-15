@@ -27,8 +27,11 @@
           <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><g><rect fill="none" height="24" width="24"/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
         </IconButton> -->
 
-        <Button @click="socialShare">
+        <Button v-if="!hasShared" @click="socialShare">
           Share
+        </Button>
+        <Button v-else @click="redirect">
+          Redirect
         </Button>
       </div>      
     </footer>
@@ -44,12 +47,21 @@ import Result from '~/components/Result'
 
 export default {
   components: { Button, IconButton, Result },
+  data() {
+    return {
+      hasShared: false
+    }
+  },
   mounted() {
     // console.log(this.$store.state.description)
   },
   methods: {
     download() {
       download(`/images/cards/${this.$store.getters.symbol.toLowerCase()}.jpg`)
+    },
+    redirect() {
+      console.log('time to redirect')
+      window.location.href = "https://www.nothingmore.net"
     },
     socialShare() {
       let symbolString = this.$store.getters.symbol.toLowerCase()
@@ -63,11 +75,13 @@ export default {
           if (navigator.canShare && navigator.canShare({ files: file })) {
             navigator.share({ 
               files: file,
-              title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
+              // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
+              title: this.$store.state.description,
               text: `Nothing More`
             })
             .then(() => {
               console.log('Share was successful')
+              this.hasShared = true
               this.download()
           })
             .catch((error) => console.log('Sharing failed', error))
