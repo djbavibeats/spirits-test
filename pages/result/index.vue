@@ -31,7 +31,7 @@
           Share
         </Button>
         <Button v-else @click="redirect">
-          Redirect
+          Presave
         </Button>
       </div>      
     </footer>
