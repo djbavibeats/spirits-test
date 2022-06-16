@@ -29,7 +29,7 @@ module.exports = {
         content: "Nothing More"
       }, {
         property: 'og:image',
-        content: "/images/background.jpg"
+        content: "https://spiritstest.com/images/background.jpg"
       }, {
         property: 'og:title',
         content: "Spirits Test"
@@ -59,7 +59,7 @@ module.exports = {
         content: "https://spiritstest.com/"
       }, {
         name: 'twitter:url',
-        content: "/images/background.jpg"
+        content: "https://spiritstest.com/images/background.jpg"
       }
     ],
     script: [
