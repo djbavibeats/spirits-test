@@ -9,7 +9,7 @@
       </div>
       <!-- <div class="spacer" /> -->
       <div class="share-website-header-icon">
-        <font-awesome-icons class="share-website" @click="shareWebsite" icon="fa-regular fa-arrow-up-from-square" />
+        <font-awesome-icons class="share-website" @click="shareWebsite" icon="fa-solid fa-share-from-square" />
       </div>
     </header>
     <div class="slide-out-menu">
@@ -43,7 +43,7 @@
           <a class="social-icons" href="https://www.instagram.com/nothingmoremusic/"><font-awesome-icons icon="fa-brands fa-instagram" /></a>
           <a class="social-icons" href="https://www.tiktok.com/@nothingmoremusic"><font-awesome-icons icon="fa-brands fa-tiktok" /></a>
           <a class="social-icons" href="https://open.spotify.com/artist/39VNwvlQTqE9SvgPjjnMpc?si=EWo0wNCHSpeWAHRpfPKaNQ&nd=1"><font-awesome-icons icon="fa-brands fa-spotify" /></a>
-          <span class="social-icons share-website" @click="shareWebsite"><font-awesome-icons icon="fa-regular fa-arrow-up-from-square" /></span>
+          <span class="social-icons share-website" @click="shareWebsite"><font-awesome-icons icon="fa-solid fa-share-from-square" /></span>
         </li>
       </ul>
     </div>
@@ -54,12 +54,11 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebook, faTwitter, faTwitch, faInstagram, faTiktok, faSpotify } from '@fortawesome/free-brands-svg-icons'
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faXmark, faShareFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faArrowUpFromSquare } from '@fortawesome/pro-regular-svg-icons'
 import Vue from 'vue'
 Vue.component('font-awesome-icons', FontAwesomeIcon)
-library.add([ faFacebook, faTwitter, faTwitch, faInstagram, faTiktok, faSpotify, faBars, faXmark, faArrowUpFromSquare ])
+library.add([ faFacebook, faTwitter, faTwitch, faInstagram, faTiktok, faSpotify, faBars, faXmark, faShareFromSquare ])
 export default {
   data() {
     isMenuOpen: false
