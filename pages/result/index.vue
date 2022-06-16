@@ -63,17 +63,31 @@ export default {
       window.location.href = "https://nothingmore.ffm.to/spirits"
     },
     socialShare() {
+      let filesArray = []
+
       let symbolString = this.$store.getters.symbol.toLowerCase()
       let img = document.createElement('img')
       img.src = `images/cards/${symbolString}.jpg`
+
+      let imgTwo = document.createElement('img')
+      imgTwo.src = `images/cards/exie.jpg`
+      
       fetch(img.src)
         .then(res => res.blob())
         .then(blob => {
-          let file = [ new File([blob], `symbol.jpg`, { type: 'image/jpeg' }) ]
-        
-          if (navigator.canShare && navigator.canShare({ files: file })) {
+          let file = new File([blob], `symbol.jpg`, { type: 'image/jpeg' })
+          filesArray.push(file)
+
+          fetch(imgTwo.src)
+            .then(res => res.blob())
+            .then(blob => {
+              let fileTwo = new File([blob], `second.jpg`, { type: 'image/jpeg' })
+              filesArray.push(fileTwo)
+            })
+          if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+            console.log(filesArray)
             navigator.share({ 
-              files: file,
+              files: filesArray,
               // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
               title: `Nothing More - Spirits Test - ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}`,
               text: this.$store.state.description

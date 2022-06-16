@@ -24,25 +24,28 @@
       <ul>
         <div class="menu-links-wrapper">
           <li>
-            <a href="https://nothingmore.ffm.to/spirits">Pre-Save</a>
+            <a href="https://nothingmore.ffm.to/spirits" target="_blank" rel="noopener noreferrer">Pre-Save</a>
           </li>
           <li>
-            <a href="https://nothingmore.ffm.to/spiritstrack">Listen</a>
+            <a href="https://nothingmore.ffm.to/spiritstrack" target="_blank" rel="noopener noreferrer">Listen</a>
           </li>
           <li>
-            <a href="https://nothingmore.net/tour/">Tour</a>
+            <a href="https://ffm.bio/nothingmore" target="_blank" rel="noopener noreferrer">Discover</a>
+          </li>
+          <li>
+            <a href="https://nothingmore.net/tour/" target="_blank" rel="noopener noreferrer">Tour</a>
           </li>
           <li>
             <div class="share-website" @click="shareWebsite">Share</div>
           </li>
         </div>
         <li class="social-icons-wrapper">
-          <a class="social-icons" href="https://www.facebook.com/nothingmore"><font-awesome-icons icon="fa-brands fa-facebook" /></a>
-          <a class="social-icons" href="https://twitter.com/nothingmorerock"><font-awesome-icons icon="fa-brands fa-twitter" /></a>
-          <a class="social-icons" href="https://www.twitch.tv/nothingmoremusic"><font-awesome-icons icon="fa-brands fa-twitch" /></a>
-          <a class="social-icons" href="https://www.instagram.com/nothingmoremusic/"><font-awesome-icons icon="fa-brands fa-instagram" /></a>
-          <a class="social-icons" href="https://www.tiktok.com/@nothingmoremusic"><font-awesome-icons icon="fa-brands fa-tiktok" /></a>
-          <a class="social-icons" href="https://open.spotify.com/artist/39VNwvlQTqE9SvgPjjnMpc?si=EWo0wNCHSpeWAHRpfPKaNQ&nd=1"><font-awesome-icons icon="fa-brands fa-spotify" /></a>
+          <a class="social-icons" href="https://www.facebook.com/nothingmore" target="_blank" rel="noopener noreferrer"><font-awesome-icons icon="fa-brands fa-facebook" /></a>
+          <a class="social-icons" href="https://twitter.com/nothingmorerock" target="_blank" rel="noopener noreferrer"><font-awesome-icons icon="fa-brands fa-twitter" /></a>
+          <a class="social-icons" href="https://www.twitch.tv/nothingmoremusic" target="_blank" rel="noopener noreferrer"><font-awesome-icons icon="fa-brands fa-twitch" /></a>
+          <a class="social-icons" href="https://www.instagram.com/nothingmoremusic/" target="_blank" rel="noopener noreferrer"><font-awesome-icons icon="fa-brands fa-instagram" /></a>
+          <a class="social-icons" href="https://www.tiktok.com/@nothingmoremusic" target="_blank" rel="noopener noreferrer"><font-awesome-icons icon="fa-brands fa-tiktok" /></a>
+          <a class="social-icons" href="https://open.spotify.com/artist/39VNwvlQTqE9SvgPjjnMpc?si=EWo0wNCHSpeWAHRpfPKaNQ&nd=1" target="_blank" rel="noopener noreferrer"><font-awesome-icons icon="fa-brands fa-spotify" /></a>
           <span class="social-icons share-website" @click="shareWebsite"><font-awesome-icons icon="fa-solid fa-share-from-square" /></span>
         </li>
       </ul>
