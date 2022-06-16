@@ -18,6 +18,9 @@ module.exports = {
         rel: 'stylesheet'
       }
     ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/images/logo.png' }
+    ],
     meta: [
       {
         charset: 'utf-8'
