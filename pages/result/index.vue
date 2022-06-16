@@ -76,8 +76,7 @@ export default {
               files: file,
               // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
               title: `Nothing More - Spirits Test - ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}`,
-              text: this.$store.state.description,
-              url: `https://spiritstest.com`
+              text: this.$store.state.description
             })
             .then(() => {
               console.log('Share was successful')
