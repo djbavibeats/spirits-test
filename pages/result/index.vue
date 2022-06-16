@@ -80,28 +80,29 @@ export default {
 
           fetch(imgTwo.src)
             .then(res => res.blob())
-            .then(blob => {
-              let fileTwo = new File([blob], `second.jpg`, { type: 'image/jpeg' })
+            .then(blobTwo => {
+              let fileTwo = new File([blobTwo], `second.jpg`, { type: 'image/jpeg' })
               filesArray.push(fileTwo)
               filesArray.push(file)
+          
+              if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+                console.log(filesArray)
+                navigator.share({ 
+                  files: filesArray,
+                  // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
+                  title: `Nothing More - Spirits Test - ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}`,
+                  text: this.$store.state.description
+                })
+                .then(() => {
+                  console.log('Share was successful')
+                  this.hasShared = true
+                  // this.download()
+              })
+                .catch((error) => console.log('Sharing failed', error))
+              } else {
+                console.log('Please enable file sharing')
+              }
             })
-          if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-            console.log(filesArray)
-            navigator.share({ 
-              files: filesArray,
-              // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
-              title: `Nothing More - Spirits Test - ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}`,
-              text: this.$store.state.description
-            })
-            .then(() => {
-              console.log('Share was successful')
-              this.hasShared = true
-              // this.download()
-          })
-            .catch((error) => console.log('Sharing failed', error))
-          } else {
-            console.log('Please enable file sharing')
-          }
         })
     }
   }
