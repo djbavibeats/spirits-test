@@ -82,7 +82,7 @@ export default {
             .then(res => res.blob())
             .then(blobTwo => {
               let fileTwo = new File([blobTwo], `second.jpg`, { type: 'image/jpeg' })
-              filesArray.push(fileTwo)
+              // filesArray.push(fileTwo)
               filesArray.push(file)
           
               if (navigator.canShare && navigator.canShare({ files: filesArray })) {
