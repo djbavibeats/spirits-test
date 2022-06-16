@@ -7,7 +7,10 @@
       <div class="logo-container">
         <img src="/images/logo.png" />
       </div>
-      <div class="spacer" />
+      <!-- <div class="spacer" /> -->
+      <div class="share-website-header-icon">
+        <font-awesome-icons class="share-website" @click="shareWebsite" icon="fa-regular fa-arrow-up-from-square" />
+      </div>
     </header>
     <div class="slide-out-menu">
       <div class="slide-out-menu-header">
@@ -21,13 +24,16 @@
       <ul>
         <div class="menu-links-wrapper">
           <li>
-            <a href="#">Pre-Order</a>
+            <a href="https://nothingmore.ffm.to/spirits">Pre-Save</a>
           </li>
           <li>
-            <a href="https://nothingmore.ffm.to/turnituplike">Listen</a>
+            <a href="https://nothingmore.ffm.to/spiritstrack">Listen</a>
           </li>
           <li>
             <a href="https://nothingmore.net/tour/">Tour</a>
+          </li>
+          <li>
+            <div class="share-website" @click="shareWebsite">Share</div>
           </li>
         </div>
         <li class="social-icons-wrapper">
@@ -37,6 +43,7 @@
           <a class="social-icons" href="https://www.instagram.com/nothingmoremusic/"><font-awesome-icons icon="fa-brands fa-instagram" /></a>
           <a class="social-icons" href="https://www.tiktok.com/@nothingmoremusic"><font-awesome-icons icon="fa-brands fa-tiktok" /></a>
           <a class="social-icons" href="https://open.spotify.com/artist/39VNwvlQTqE9SvgPjjnMpc?si=EWo0wNCHSpeWAHRpfPKaNQ&nd=1"><font-awesome-icons icon="fa-brands fa-spotify" /></a>
+          <span class="social-icons share-website" @click="shareWebsite"><font-awesome-icons icon="fa-regular fa-arrow-up-from-square" /></span>
         </li>
       </ul>
     </div>
@@ -49,9 +56,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebook, faTwitter, faTwitch, faInstagram, faTiktok, faSpotify } from '@fortawesome/free-brands-svg-icons'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faArrowUpFromSquare } from '@fortawesome/pro-regular-svg-icons'
 import Vue from 'vue'
 Vue.component('font-awesome-icons', FontAwesomeIcon)
-library.add([ faFacebook, faTwitter, faTwitch, faInstagram, faTiktok, faSpotify, faBars, faXmark ])
+library.add([ faFacebook, faTwitter, faTwitch, faInstagram, faTiktok, faSpotify, faBars, faXmark, faArrowUpFromSquare ])
 export default {
   data() {
     isMenuOpen: false
@@ -62,6 +70,16 @@ export default {
       this.isMenuOpen ?
         document.querySelector('.slide-out-menu').style.left = `0`
         : document.querySelector('.slide-out-menu').style.left = `-100%`
+    },
+    shareWebsite() {
+      if (navigator.canShare) {
+        navigator.share({
+          title:`Nothing More - Spirits Test`,
+          url: 'https://spiritstest.com'
+        })
+      } else {
+        console.log('Please enable file sharing')
+      }
     }
   }
 }
@@ -80,6 +98,11 @@ header {
 .logo-container, .menu-container, .spacer {
   flex: .3;
   align-items: center;
+}
+
+.share-website-header-icon {
+  flex: .3;
+  text-align: right;
 }
 
 .slide-out-menu {
@@ -147,5 +170,9 @@ header {
   justify-content: center;
   display: flex;
   flex-direction: column;
+}
+
+.share-website:hover {
+  cursor: pointer;
 }
 </style>

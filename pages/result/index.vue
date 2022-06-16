@@ -60,8 +60,7 @@ export default {
       download(`/images/cards/${this.$store.getters.symbol.toLowerCase()}.jpg`)
     },
     redirect() {
-      console.log('time to redirect')
-      window.location.href = "https://www.nothingmore.net"
+      window.location.href = "https://nothingmore.ffm.to/spirits"
     },
     socialShare() {
       let symbolString = this.$store.getters.symbol.toLowerCase()
@@ -77,7 +76,8 @@ export default {
               files: file,
               // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
               title: `Nothing More - Spirits Test - ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}`,
-              text: this.$store.state.description
+              text: this.$store.state.description,
+              url: `https://spiritstest.com`
             })
             .then(() => {
               console.log('Share was successful')
