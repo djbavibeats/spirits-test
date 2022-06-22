@@ -8,7 +8,8 @@ module.exports = {
   css: ['~/assets/css/app.css'],
   env: {
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
-    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID
+    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
+    KLAVIYO_SECRET: process.env.KLAVIYO_SECRET
   },
   head: {
     title: 'Nothing More - Spirits Test',

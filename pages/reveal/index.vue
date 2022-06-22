@@ -29,29 +29,41 @@ import Button from '~/components/Button'
 export default {
   components: { Button, ValidationProvider, ValidationObserver },
   data() {
+    console.log()
     return {
-      email: ''
+      email: '',
+      symbol: this.$store.getters.symbol.toLowerCase()
     }
   },
   methods: {
     submit() {
-      let params = new URLSearchParams({
-        'form-name': 'subjects',
-        'email': this.email
-      })
-
-      fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+      console.log(this.symbol)
+      const options = {
+        method: 'POST', 
+        headers: { 
+          'Accept': 'text/html',
+          'Content-Type': 'application/x-www-form-urlencoded' 
         },
-        body: params.toString()
-      })
-      .then(() => {
-        this.$router.push({
-          path: '/result'
+        body: new URLSearchParams({
+          data: `{
+            "token": "VZ7Yfp",
+            "properties": {
+              "$email": "${this.email}",
+              "Submitted Test": "True" ,
+              "Spirits Symbol": "${this.symbol}"
+            }
+          }`
         })
-      })
+      }
+
+      fetch('https://a.klaviyo.com/api/identify', options)
+        .then(response => response.json())
+        .then(response => {
+          this.$router.push({
+            path: '/result'
+          })
+        })
+        .catch(err => console.error(err))   
       .catch(error => {
         console.log(error)
       })
