@@ -27,10 +27,13 @@
           <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><g><rect fill="none" height="24" width="24"/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
         </IconButton> -->
 
-        <Button v-if="!hasShared" @click="socialShare">
-          Share
+        <Button v-if="shareStep === 0" @click="shareArchetype">
+          Share Archetype
         </Button>
-        <Button v-else @click="redirect">
+        <Button v-else-if="shareStep === 1" @click="shareDescription">
+          Share Description
+        </Button>
+        <Button v-else-if="shareStep === 2" @click="redirect">
           Presave
         </Button>
       </div>      
@@ -49,7 +52,7 @@ export default {
   components: { Button, IconButton, Result },
   data() {
     return {
-      hasShared: false
+      shareStep: 0
     }
   },
   mounted() {
@@ -62,47 +65,61 @@ export default {
     redirect() {
       window.location.href = "https://nothingmore.ffm.to/spirits"
     },
-    socialShare() {
+    shareArchetype() {
       let filesArray = []
 
       let symbolString = this.$store.getters.symbol.toLowerCase()
       let img = document.createElement('img')
       img.src = `images/cards/${symbolString}.jpg`
-
-      let imgTwo = document.createElement('img')
-      imgTwo.src = `images/cards/exie.jpg`
       
       fetch(img.src)
         .then(res => res.blob())
         .then(blob => {
           let file = new File([blob], `symbol.jpg`, { type: 'image/jpeg' })
-          // filesArray.push(file)
-
-          fetch(imgTwo.src)
-            .then(res => res.blob())
-            .then(blobTwo => {
-              let fileTwo = new File([blobTwo], `second.jpg`, { type: 'image/jpeg' })
-              // filesArray.push(fileTwo)
-              filesArray.push(file)
-          
+          filesArray.push(file)
               if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-                console.log(filesArray)
                 navigator.share({ 
                   files: filesArray,
-                  // title: `My symbol is ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}.`,
                   title: `Nothing More - Spirits Test - ${symbolString.charAt(0).toUpperCase() + symbolString.slice(1)}`,
                   text: this.$store.state.description
                 })
                 .then(() => {
-                  console.log('Share was successful')
-                  this.hasShared = true
-                  // this.download()
-              })
+                  console.log('Symbol share was successful')
+                  this.shareStep = 1
+                })
                 .catch((error) => console.log('Sharing failed', error))
               } else {
                 console.log('Please enable file sharing')
               }
-            })
+        })
+    },
+    shareDescription() {
+      console.log('share description!')
+      let descriptionFilesArray = []
+
+      let descriptionString = this.$store.getters.symbol.toLowerCase()
+      let descriptionImg = document.createElement('img')
+      descriptionImg.src = `images/descriptions/${descriptionString}.jpg`
+
+      fetch(descriptionImg.src)
+        .then(res => res.blob())
+        .then(blob => {
+          let descriptionFile = new File([blob], `description.jpg`, { type: 'image/jpeg' })
+          descriptionFilesArray.push(descriptionFile)
+            if (navigator.canShare && navigator.canShare({ files: descriptionFilesArray })) {
+              navigator.share({
+                files: descriptionFilesArray,
+                title: `Nothing More - Spirits Test - ${descriptionString.charAt(0).toUpperCase() + descriptionString.slice(1)}`,
+                text: this.$store.state.description
+              })
+              .then(() => {
+                console.log('Description share was successful')
+                this.shareStep = 2
+              })
+              .catch((error) => console.log('Sharing failed', error))
+            } else {
+              console.log('Please enable file sharing')
+            }
         })
     }
   }
