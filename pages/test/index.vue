@@ -6,7 +6,7 @@
     <!-- Header -->
     <header>
       <div class="text-blood uppercase w-1/4">
-        Part {{ categoryNumber }} of {{ categories.length }}
+        <!-- Part {{ categoryNumber }} of {{ categories.length }} -->
       </div>
 
       <IconButton @click="toggleAudio" :disabled="!loaded">
@@ -21,6 +21,14 @@
 
     <!-- Article -->
     <article>
+      <div class="flex flex-row">
+        <div class="flex h-24 items-center px-4">
+           <p style="font-size: 20px; text-transform: uppercase;">
+            {{ question.fields.subcomponent.fields.name }}
+          </p>
+        </div>
+      </div>
+
       <div class="h-72 w-72">
         <Graph></Graph>
       </div>
@@ -31,6 +39,7 @@
         </IconButton>
 
         <div class="flex h-24 items-center px-4">
+         
           <p :key="$store.state.currentQuestion">
             {{ question.fields.sentence }}
           </p>
@@ -210,6 +219,7 @@ export default {
 
   },
   mounted() {
+    console.log(this.questions)
     this.initializeAudio()
   }
 }
