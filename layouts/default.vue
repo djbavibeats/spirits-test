@@ -39,7 +39,7 @@
             <div class="share-website" @click="shareWebsite">Share</div>
           </li>
           <li>
-            <a href="/cards">Symbols</a>
+            <a href="/symbols">Symbols</a>
           </li>
         </div>
         <li class="social-icons-wrapper">

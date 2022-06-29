@@ -52,6 +52,7 @@
                 </Card>
             </div>
         </div>
+        <p>Tap on a symbol for more information.</p>
         <footer>
             <div class="gap-2.5 grid grid-flow-col-dense">
                 <Button @click="$router.push('/test')">
