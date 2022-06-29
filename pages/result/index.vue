@@ -99,12 +99,12 @@ export default {
 
       let descriptionString = this.$store.getters.symbol.toLowerCase()
       let descriptionImg = document.createElement('img')
-      descriptionImg.src = `images/descriptions/${descriptionString}.jpg`
+      descriptionImg.src = `images/descriptions/${descriptionString}.png`
 
       fetch(descriptionImg.src)
         .then(res => res.blob())
         .then(blob => {
-          let descriptionFile = new File([blob], `description.jpg`, { type: 'image/jpeg' })
+          let descriptionFile = new File([blob], `description.png`, { type: 'image/png' })
           descriptionFilesArray.push(descriptionFile)
             if (navigator.canShare && navigator.canShare({ files: descriptionFilesArray })) {
               navigator.share({
