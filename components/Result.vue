@@ -5,8 +5,11 @@
     </Card>
 
     <Card>
-      <p>{{ symbol.fields.description }}<br><br><a :href="symbol.fields.url" target="_blank" class="underline">Read More</a></p>
+      <img :src="`/images/descriptions/${$store.getters.symbol.toLowerCase()}.png`" />
     </Card>
+    <!-- <Card>
+      <p>{{ symbol.fields.description }}<br><br><a :href="symbol.fields.url" target="_blank" class="underline">Read More</a></p>
+    </Card> -->
   </div>
 </template>
 
