@@ -3,7 +3,7 @@
     <article>
       <div class="bg-cover content-center gap-4 grid grid-flow-row-dense items-center justify-center justify-items-center h-72 w-72" style="background-image:url(/images/outline.png)">
         <h1>Spirits Test</h1>
-        <p>Take the test to find out<br>which symbol you are.</p>  
+        <p>Take the test to find out<br>which spirit type you are.</p>  
       </div>
     </article>
 

@@ -15,7 +15,8 @@
       </IconButton>
 
       <div class="text-blood text-right uppercase w-1/4">
-        Q {{ questionNumber }} of {{ categoryQuestions.length }}
+        <!-- {{ categoryQuestions }} -->
+        Q {{ questionNumber }} of {{ this.questions.length }}
       </div>
     </header>
 
@@ -98,7 +99,9 @@ export default {
       return this.categories.findIndex(category => category.sys.id == this.question.fields.subcomponent.fields.category.sys.id) + 1
     },
     categoryQuestions() {
-      return this.questions.filter(question => question.fields.subcomponent.fields.category.sys.id == this.category.sys.id)
+      return this.questions
+      // OLD
+      // return this.questions.filter(question => question.fields.subcomponent.fields.category.sys.id == this.category.sys.id)
     },
     questionNumber() {
       return this.categoryQuestions.findIndex(question => question.sys.id == this.question.sys.id) + 1
@@ -107,7 +110,9 @@ export default {
       return this.$store.state.answers[this.$store.state.currentQuestion] ? this.$store.state.answers[this.$store.state.currentQuestion].answer : null
     },
     categoryProgress() {
-      return (this.questionNumber - 1) / (this.categoryQuestions.length - 1)
+      return (this.questionNumber - 1) / (25)
+      //OLD
+      // return (this.questionNumber - 1) / (this.categoryQuestions.length - 1)
     },
     progress() {
       return this.$store.state.currentQuestion / (this.questions.length - 1)
@@ -117,7 +122,7 @@ export default {
     initializeAudio() {
       // Initialize sound
       this.sound = new Howl({
-        src: ['https://thiswilldestroyagain.s3.us-east-2.amazonaws.com/This+Will+Destroy+Again+4.mp3'],
+        src: ['https://spiritsinstrumental.s3.us-east-2.amazonaws.com/spiritsinstrumental.mp3'],
         loop: true,
         autoplay: false,
         onload: () => {
@@ -176,6 +181,7 @@ export default {
       this.$nuxt.$loading.finish()
     },
     nextQuestion() {
+      console.log(this.categoryQuestions)
       if (this.$store.state.currentQuestion + 1 < this.questions.length) {
         this.$store.commit('incrementCurrentQuestion')
       } else {
@@ -198,6 +204,7 @@ export default {
 
     // Store categories
     this.categories = categories
+    console.log(this.categories)
 
     // Get all questions
     const { items: questions } = await this.$contentful.getEntries({
@@ -218,7 +225,6 @@ export default {
 
   },
   mounted() {
-    console.log(this.questions[0].fields.subcomponent.fields.name)
     this.initializeAudio()
   }
 }

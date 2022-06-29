@@ -27,8 +27,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><g><rect fill="none" height="24" width="24"/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
         </IconButton> -->
 
-        <Button v-if="shareStep === 0" @click="shareArchetype">
-          Share Archetype
+        <Button v-if="shareStep === 0" @click="shareSpiritType">
+          Share Spirit Type
         </Button>
         <Button v-else-if="shareStep === 1" @click="shareDescription">
           Share Description
@@ -65,7 +65,7 @@ export default {
     redirect() {
       window.location.href = "https://nothingmore.ffm.to/spirits"
     },
-    shareArchetype() {
+    shareSpiritType() {
       let filesArray = []
 
       let symbolString = this.$store.getters.symbol.toLowerCase()
