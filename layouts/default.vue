@@ -24,22 +24,22 @@
       <ul>
         <div class="menu-links-wrapper">
           <li>
-            <a href="https://nothingmore.ffm.to/spirits" target="_blank" rel="noopener noreferrer">Pre-Save</a>
+            <a href="/spirit-types">Spirit Types</a>
           </li>
           <li>
-            <a href="https://nothingmore.ffm.to/spiritstrack" target="_blank" rel="noopener noreferrer">Listen</a>
+            <a href="https://nothingmore.ffm.to/spirits" target="_blank" rel="noopener noreferrer">Pre-Save Spirits</a>
           </li>
           <li>
-            <a href="https://ffm.bio/nothingmore" target="_blank" rel="noopener noreferrer">Discover</a>
+            <a href="https://ffm.bio/nothingmore" target="_blank" rel="noopener noreferrer">Listen</a>
+          </li>
+          <li>
+            <a href="https://nothingmore.net/" target="_blank" rel="noopener noreferrer">Pre-Order Vinyl + Merch</a>
           </li>
           <li>
             <a href="https://nothingmore.net/tour/" target="_blank" rel="noopener noreferrer">Tour</a>
           </li>
           <li>
             <div class="share-website" @click="shareWebsite">Share</div>
-          </li>
-          <li>
-            <a href="/symbols">Symbols</a>
           </li>
         </div>
         <li class="social-icons-wrapper">

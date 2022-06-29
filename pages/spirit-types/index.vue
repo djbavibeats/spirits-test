@@ -2,11 +2,12 @@
 
 <section>
     <article>
+        <p>Spirit Types</p>
         <div id="cards">
             <div @click="flipCard('ballast')" class="first-card">
                 <Card>
-                <img v-if="!ballastFlipped" :src="`/images/cards/ballast.jpg`" />
-                <img v-else :src="`/images/descriptions/ballast.png`" />
+                <img class="front" v-if="!ballastFlipped" :src="`/images/cards/ballast.jpg`" />
+                <img class="back" v-else :src="`/images/descriptions/ballast.png`" />
                 </Card>
             </div>
             <div @click="flipCard('constant')">
@@ -65,6 +66,7 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 import Card from '~/components/Card'
 import Button from '~/components/Button'
 export default {
@@ -81,11 +83,15 @@ export default {
             truFlipped: false
         }
     },
+    mounted: function() {
+        // gsap.to('.first-card', { rotationY: 360, duration: 3 })
+    },
     methods: {
         flipCard(symbol) {
             console.log(symbol)
             switch(symbol) {
                 case('ballast'):
+                    // gsap.to('.first-card', { rotationY: 180, duration: 3 })
                     this.ballastFlipped = !this.ballastFlipped
                     break
                 case('constant'):
@@ -118,6 +124,10 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+article {
+    padding-left: 0;
+    padding-right: 0;
+}
 #cards{
   @apply gap-4 grid grid-flow-col-dense overflow-x-scroll w-full;
   scroll-snap-type: x mandatory;

@@ -33,9 +33,14 @@
         <Button v-else-if="shareStep === 1" @click="shareDescription">
           Share Description
         </Button>
-        <Button v-else-if="shareStep === 2" @click="redirect">
-          Presave
-        </Button>
+        <div v-else-if="shareStep === 2" class="items-center final-step-buttons">
+          <Button  class="presave-button" @click="redirect">
+            Presave
+          </Button>
+          <Button class="understanding-button" @click="$router.push('/understand')">
+            Understanding The Chart
+          </Button>
+        </div>
       </div>      
     </footer>
   </section>
@@ -133,5 +138,18 @@ article{
 
 p{
   @apply px-4;
+}
+
+.final-step-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.presave-button, .understanding-button {
+  width: 100%;
+}
+
+.presave-button {
+  margin-bottom: 25px;
 }
 </style>
