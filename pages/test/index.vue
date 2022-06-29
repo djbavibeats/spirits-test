@@ -21,13 +21,7 @@
 
     <!-- Article -->
     <article>
-      <div class="flex flex-row">
-        <div class="flex h-24 items-center px-4">
-           <p style="font-size: 20px; text-transform: uppercase;">
-            {{ question.fields.subcomponent.fields.name }}
-          </p>
-        </div>
-      </div>
+
 
       <div class="h-72 w-72">
         <Graph></Graph>
@@ -152,6 +146,7 @@ export default {
 
       let finalAnswer = answer
 
+      // UNCOMMENT
       if (this.question.fields.subcomponent.fields.type == "binary") {
         if (answer > 0) {
           finalAnswer = this.question.fields.agree
@@ -219,7 +214,7 @@ export default {
 
   },
   mounted() {
-    console.log(this.questions)
+    console.log(this.$store.state)
     this.initializeAudio()
   }
 }
