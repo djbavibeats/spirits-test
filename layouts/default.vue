@@ -38,6 +38,9 @@
           <li>
             <div class="share-website" @click="shareWebsite">Share</div>
           </li>
+          <li>
+            <a href="/cards">Symbols</a>
+          </li>
         </div>
         <li class="social-icons-wrapper">
           <a class="social-icons" href="https://www.facebook.com/nothingmore" target="_blank" rel="noopener noreferrer"><font-awesome-icons icon="fa-brands fa-facebook" /></a>

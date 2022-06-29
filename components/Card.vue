@@ -23,5 +23,6 @@ export default {
 
 .card .content{
   @apply absolute border border-blood flex h-full items-center justify-center left-0 overflow-hidden rounded-xl top-0 w-full;
+  box-shadow: 5px 5px 20px #000000;
 }
 </style>

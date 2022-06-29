@@ -70,6 +70,10 @@ export default {
   margin-left: 25vw;
 }
 
+.card {  
+  margin-bottom: 20px;
+}
+
 #cards .card p{
   @apply px-4 text-xs;
 }
