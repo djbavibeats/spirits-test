@@ -22,7 +22,11 @@
     <!-- Article -->
     <article>
 
-
+      <div class="h-12 -mt-12 items-center">
+        <p class="text-xl">
+          {{ question.fields.subcomponent.fields.name }}
+        </p>
+      </div>
       <div class="h-72 w-72">
         <Graph></Graph>
       </div>
@@ -214,7 +218,7 @@ export default {
 
   },
   mounted() {
-    console.log(this.$store.state)
+    console.log(this.questions[0].fields.subcomponent.fields.name)
     this.initializeAudio()
   }
 }
