@@ -33,7 +33,7 @@ module.exports = {
         content: "Nothing More"
       }, {
         property: 'og:image',
-        content: "https://spiritstest.com/images/background.jpg"
+        content: "/images/background.jpg"
       }, {
         property: 'og:title',
         content: "Spirits Test"
@@ -60,10 +60,10 @@ module.exports = {
         content: "Take the test to find out which symbol you are."
       }, {
         name: 'twitter:image',
-        content: "https://spiritstest.com/"
+        content: "/images/background.jpg"
       }, {
         name: 'twitter:url',
-        content: "https://spiritstest.com/images/background.jpg"
+        content: "https://spiritstest.com/
       }
     ],
     script: [
