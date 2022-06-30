@@ -63,7 +63,7 @@ module.exports = {
         content: "/images/background.jpg"
       }, {
         name: 'twitter:url',
-        content: "https://spiritstest.com/
+        content: "https://spiritstest.com/"
       }
     ],
     script: [
