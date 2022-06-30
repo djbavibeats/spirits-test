@@ -2,7 +2,7 @@
 
 <section>
     <article>
-        <p>Spirit Types</p>
+        <p>Tap on a Spirit Type for more information</p>
         <div id="cards">
             <div @click="flipCard('ballast')" class="first-card card-wrapper">
                 <Card>

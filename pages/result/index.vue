@@ -44,7 +44,7 @@
         </div>
         <div v-else-if="shareStep === 2" class="items-center results-button-group">
           <Button @click="redirect" class="top-button">
-            Presave
+            Pre-Save The Album Spirits
           </Button>
           <Button @click="$router.push('/understand')" class="bottom-button">
             Understanding The Chart
