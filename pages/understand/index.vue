@@ -3,7 +3,10 @@
 <section>
     <article>
         <p>Understanding the Chart</p>
-        <footer>
+        <div class="elements-container">
+            <img src="/images/elements.png" />
+        </div>
+        <footer style="position: relative;">
             <div class="gap-2.5 grid grid-flow-col-dense items-center understand-buttons">
                 <Button @click="redirect">
                     Presave
@@ -45,5 +48,17 @@ export default {
 
 .understand-buttons * {
     width: 100%;
+}
+
+img {
+    margin-bottom: 3rem;
+    border-radius: 0.75rem;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgba(116, 62, 59, var(--tw-border-opacity));
+    box-shadow: 5px 5px 20px #000000;
+}
+section {
+    margin-top: 8rem;
 }
 </style>
