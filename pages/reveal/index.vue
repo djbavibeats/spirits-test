@@ -2,7 +2,7 @@
   <section>
     <ValidationObserver v-slot="{ invalid }" slim>
       <article>
-        <p>Thanks for taking the Spirits test. To reveal your symbol simply provide the info requested below.</p>
+        <p>Thanks for taking the Spirits Test. To reveal your Spirit Type simply provide the info requested below.</p>
 
         <form name="subjects" method="post" autocomplete="off" @submit.prevent="submit" netlify>
           <input type="hidden" name="form-name" value="subjects">

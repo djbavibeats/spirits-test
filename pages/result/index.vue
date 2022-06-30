@@ -2,7 +2,7 @@
   <section>
     <article>
       <Result></Result>
-      <p>Your symbol is {{ $store.getters.symbol }}. Click below to download and share your symbol card.</p>
+      <p>Your Spirit Type is {{ $store.getters.symbol }}. Click below to download and share your Spirit card.</p>
     </article>
 
     <footer>
@@ -26,18 +26,27 @@
         <!-- <IconButton @click="download" appearance="square">
           <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><g><rect fill="none" height="24" width="24"/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
         </IconButton> -->
-
-        <Button v-if="shareStep === 0" @click="shareSpiritType">
-          Share Spirit Type
-        </Button>
-        <Button v-else-if="shareStep === 1" @click="shareDescription">
-          Share Description
-        </Button>
-        <div v-else-if="shareStep === 2" class="items-center final-step-buttons">
-          <Button  class="presave-button" @click="redirect">
+        <div v-if="shareStep === 0" class="items-center results-button-group">
+          <Button @click="shareSpiritType" class="top-button">
+            Share Spirit Type
+          </Button>
+          <Button @click="downloadSpiritType" class="bottom-button">
+            Download Spirit Type
+          </Button>
+        </div>
+        <div v-else-if="shareStep === 1" class="items-center results-button-group">
+          <Button @click="shareDescription" class="top-button">
+            Share Description
+          </Button>
+          <Button @click="downloadDescription" class="bottom-button">
+            Download Description
+          </Button>
+        </div>
+        <div v-else-if="shareStep === 2" class="items-center results-button-group">
+          <Button @click="redirect" class="top-button">
             Presave
           </Button>
-          <Button class="understanding-button" @click="$router.push('/understand')">
+          <Button @click="$router.push('/understand')" class="bottom-button">
             Understanding The Chart
           </Button>
         </div>
@@ -66,6 +75,12 @@ export default {
   methods: {
     download() {
       download(`/images/cards/${this.$store.getters.symbol.toLowerCase()}.jpg`)
+    },
+    downloadSpiritType() {
+      download(`/images/cards/${this.$store.getters.symbol.toLowerCase()}.jpg`)
+    },
+    downloadDescription() {
+      download(`/images/descriptions/${this.$store.getters.symbol.toLowerCase()}.png`)
     },
     redirect() {
       window.location.href = "https://nothingmore.ffm.to/spirits"
@@ -140,16 +155,19 @@ p{
   @apply px-4;
 }
 
-.final-step-buttons {
+.results-button-group {
   display: flex;
   flex-direction: column;
 }
-
-.presave-button, .understanding-button {
+.top-button, .bottom-button {
   width: 100%;
 }
 
-.presave-button {
+.top-button {
   margin-bottom: 25px;
+}
+
+section {
+  margin-top: -2rem;
 }
 </style>

@@ -10,6 +10,8 @@ main{
 body{
   @apply bg-cover bg-center bg-shadow font-caslon text-bone;
   background-image: url(/images/background.jpg);
+  background-attachment: fixed;
+  /* height: auto; */
 }
 
 section{

@@ -4,49 +4,49 @@
     <article>
         <p>Spirit Types</p>
         <div id="cards">
-            <div @click="flipCard('ballast')" class="first-card">
+            <div @click="flipCard('ballast')" class="first-card card-wrapper">
                 <Card>
                 <img class="front" v-if="!ballastFlipped" :src="`/images/cards/ballast.jpg`" />
                 <img class="back" v-else :src="`/images/descriptions/ballast.png`" />
                 </Card>
             </div>
-            <div @click="flipCard('constant')">
+            <div @click="flipCard('constant')" class="card-wrapper">
                 <Card>
                 <img v-if="!constantFlipped" :src="`/images/cards/constant.jpg`" />
                 <img v-else :src="`/images/descriptions/constant.png`" />
                 </Card>
             </div>
-            <div @click="flipCard('cor')">
+            <div @click="flipCard('cor')" class="card-wrapper">
                 <Card>
                 <img v-if="!corFlipped" :src="`/images/cards/cor.jpg`" />
                 <img v-else :src="`/images/descriptions/cor.png`" />
                 </Card>
             </div>
-            <div @click="flipCard('elemental')">
+            <div @click="flipCard('elemental')" class="card-wrapper">
                 <Card>
                 <img v-if="!elementalFlipped" :src="`/images/cards/elemental.jpg`" />
                 <img v-else :src="`/images/descriptions/elemental.png`" />
                 </Card>
             </div>
-            <div @click="flipCard('exie')">
+            <div @click="flipCard('exie')" class="card-wrapper">
                 <Card>
                 <img v-if="!exieFlipped" :src="`/images/cards/exie.jpg`" />
                 <img v-else :src="`/images/descriptions/exie.png`" />
                 </Card>
             </div>
-            <div @click="flipCard('force')">
+            <div @click="flipCard('force')" class="card-wrapper">
                 <Card>
                 <img v-if="!forceFlipped" :src="`/images/cards/force.jpg`" />
                 <img v-else :src="`/images/descriptions/force.png`" />
                 </Card>
             </div>
-            <div @click="flipCard('fuse')">
+            <div @click="flipCard('fuse')" class="card-wrapper">
                 <Card>
                 <img v-if="!fuseFlipped" :src="`/images/cards/fuse.jpg`" />
                 <img v-else :src="`/images/descriptions/fuse.png`" />
                 </Card>
             </div>
-            <div @click="flipCard('tru')">
+            <div @click="flipCard('tru')" class="card-wrapper">
                 <Card>
                 <img v-if="!ctrulipped" :src="`/images/cards/tru.jpg`" />
                 <img v-else :src="`/images/descriptions/tru.png`" />
@@ -178,6 +178,11 @@ article {
 
   #cards .card:first-child{
     @apply ml-0;
-  }
+  } 
+}
+
+article {
+    @apply md:max-w-screen-lg;
+    max-width: none;
 }
 </style>
