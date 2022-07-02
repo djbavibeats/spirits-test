@@ -27,6 +27,9 @@
             <a href="/spirit-types">Spirit Types</a>
           </li>
           <li>
+            <a href="/understand">Understanding the Chart</a>
+          </li>
+          <li>
             <a href="https://nothingmore.ffm.to/spirits" target="_blank" rel="noopener noreferrer">Pre-Save Spirits</a>
           </li>
           <li>

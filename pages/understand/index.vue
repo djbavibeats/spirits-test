@@ -1,10 +1,12 @@
 <template>
 
-<section>
+<section class="understanding-section">
     <article>
         <p>Understanding the Chart</p>
         <div class="elements-container">
-            <img src="/images/elements.png" />
+            <img src="/images/understand/elements.png" />
+            <img src="/images/understand/paths.png" />
+            <img src="/images/understand/perceptions.png" />
         </div>
         <footer style="position: relative;">
             <div class="gap-2.5 grid grid-flow-col-dense items-center understand-buttons">
@@ -58,7 +60,9 @@ img {
     border-color: rgba(116, 62, 59, var(--tw-border-opacity));
     box-shadow: 5px 5px 20px #000000;
 }
-section {
-    margin-top: 8rem;
+
+.understanding-section {
+    display: block;
+    padding-top: 4rem;
 }
 </style>
