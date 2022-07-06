@@ -62,9 +62,9 @@ export default {
             path: '/result'
           })
         })
-        .catch(err => console.error("From err " + err))   
+        .catch(err => console.error("Please disable your VPN/AdBlocker " + err))   
       .catch(error => {
-        console.log("From error" + error)
+        console.log(error)
       })
     }
   },

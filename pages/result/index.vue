@@ -90,7 +90,7 @@ export default {
 
       let symbolString = this.$store.getters.symbol.toLowerCase()
       let img = document.createElement('img')
-      img.src = `images/cards/${symbolString}.jpg`
+      img.src = `images/cards-sharing/${symbolString}.jpg`
       
       fetch(img.src)
         .then(res => res.blob())
@@ -120,7 +120,7 @@ export default {
 
       let descriptionString = this.$store.getters.symbol.toLowerCase()
       let descriptionImg = document.createElement('img')
-      descriptionImg.src = `images/descriptions/${descriptionString}.png`
+      descriptionImg.src = `images/descriptions-sharing/${descriptionString}.jpg`
 
       fetch(descriptionImg.src)
         .then(res => res.blob())
