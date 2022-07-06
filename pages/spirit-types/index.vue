@@ -48,7 +48,7 @@
             </div>
             <div @click="flipCard('tru')" class="card-wrapper">
                 <Card>
-                <img v-if="!ctrulipped" :src="`/images/cards/tru.jpg`" />
+                <img v-if="!truFlipped" :src="`/images/cards/tru.jpg`" />
                 <img v-else :src="`/images/descriptions/tru.png`" />
                 </Card>
             </div>

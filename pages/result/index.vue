@@ -2,7 +2,7 @@
   <section>
     <article>
       <Result></Result>
-      <p>Your Spirit Type is {{ $store.getters.symbol }}. Click below to download and share your Spirit card.</p>
+      <p>Your Spirit Type is {{ $store.getters.symbol }}.</p>
     </article>
 
     <footer>
@@ -30,16 +30,16 @@
           <Button @click="shareSpiritType" class="top-button">
             Share Spirit Type
           </Button>
-          <Button @click="downloadSpiritType" class="bottom-button">
-            Download Spirit Type
+          <Button @click="$router.push('/understand')" class="bottom-button">
+            Understanding The Chart
           </Button>
         </div>
         <div v-else-if="shareStep === 1" class="items-center results-button-group">
           <Button @click="shareDescription" class="top-button">
             Share Description
           </Button>
-          <Button @click="downloadDescription" class="bottom-button">
-            Download Description
+          <Button @click="$router.push('/understand')" class="bottom-button">
+            Understanding The Chart
           </Button>
         </div>
         <div v-else-if="shareStep === 2" class="items-center results-button-group">

@@ -127,7 +127,7 @@ export default {
         autoplay: false,
         onload: () => {
           this.loaded = true
-
+          
           this.sound.play()
         },
         onplay: () => {

@@ -33,7 +33,7 @@ module.exports = {
         content: "Nothing More"
       }, {
         property: 'og:image',
-        content: "/images/background.jpg"
+        content: "/images/spirits-album-art.jpg"
       }, {
         property: 'og:title',
         content: "Spirits Test"
