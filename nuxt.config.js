@@ -60,7 +60,7 @@ module.exports = {
         content: "Take the test to find out which symbol you are."
       }, {
         name: 'twitter:image',
-        content: "/images/background.jpg"
+        content: "/images/spirits-album-art.jpg"
       }, {
         name: 'twitter:url',
         content: "https://spiritstest.com/"

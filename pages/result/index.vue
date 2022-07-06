@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="results-section">
     <article>
       <Result></Result>
       <p>Your Spirit Type is {{ $store.getters.symbol }}.</p>
@@ -26,15 +26,11 @@
         <!-- <IconButton @click="download" appearance="square">
           <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><g><rect fill="none" height="24" width="24"/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
         </IconButton> -->
-        <div v-if="shareStep === 0" class="items-center results-button-group">
+        <!-- <div v-if="shareStep === 0" class="items-center results-button-group"> -->
+        <div v-if="!symbolShared || !descriptionShared" class="items-center results-button-group">
           <Button @click="shareSpiritType" class="top-button">
             Share Spirit Type
           </Button>
-          <Button @click="$router.push('/understand')" class="bottom-button">
-            Understanding The Chart
-          </Button>
-        </div>
-        <div v-else-if="shareStep === 1" class="items-center results-button-group">
           <Button @click="shareDescription" class="top-button">
             Share Description
           </Button>
@@ -42,7 +38,9 @@
             Understanding The Chart
           </Button>
         </div>
-        <div v-else-if="shareStep === 2" class="items-center results-button-group">
+        
+        <!-- <div v-else-if="shareStep === 1" class="items-center results-button-group"> -->
+        <div v-else-if="symbolShared && descriptionShared" class="items-center results-button-group">
           <Button @click="redirect" class="top-button">
             Pre-Save The Album Spirits
           </Button>
@@ -66,7 +64,9 @@ export default {
   components: { Button, IconButton, Result },
   data() {
     return {
-      shareStep: 0
+      shareStep: 0,
+      symbolShared: false,
+      descriptionShared: false
     }
   },
   mounted() {
@@ -106,6 +106,7 @@ export default {
                 .then(() => {
                   console.log('Symbol share was successful')
                   this.shareStep = 1
+                  this.symbolShared = true
                 })
                 .catch((error) => console.log('Sharing failed', error))
               } else {
@@ -134,7 +135,8 @@ export default {
               })
               .then(() => {
                 console.log('Description share was successful')
-                this.shareStep = 2
+                this.shareStep = 1
+                this.descriptionShared = true
               })
               .catch((error) => console.log('Sharing failed', error))
             } else {
@@ -168,6 +170,16 @@ p{
 }
 
 section {
-  margin-top: -2rem;
+  margin-top: 0rem;
+}
+
+footer {
+  position: relative;
+  bottom: -1rem;
+}
+.results-section {
+    display: block;
+    padding-top: 4rem;
+    height: auto;
 }
 </style>

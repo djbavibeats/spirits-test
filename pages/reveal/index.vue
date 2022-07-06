@@ -37,7 +37,6 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.symbol)
       const options = {
         method: 'POST', 
         headers: { 
@@ -63,9 +62,9 @@ export default {
             path: '/result'
           })
         })
-        .catch(err => console.error(err))   
+        .catch(err => console.error("From err " + err))   
       .catch(error => {
-        console.log(error)
+        console.log("From error" + error)
       })
     }
   },
