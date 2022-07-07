@@ -2,8 +2,7 @@
   <section>
     <ValidationObserver v-slot="{ invalid }" slim>
       <article>
-        <p>Thanks for taking the Spirits Test. To reveal your Spirit Type simply provide the info requested below.</p>
-        
+        <p>Thanks for taking the Spirits Test. To reveal your Spirit Type simply provide the info requested below.</p>      
 
         <form name="subjects" method="post" autocomplete="off" @submit.prevent="submit" netlify>
           <input type="hidden" name="form-name" value="subjects">
@@ -12,6 +11,8 @@
             <input type="email" name="email" placeholder="Email address" v-model="email" autocomplete="off">
           </ValidationProvider>
         </form>
+
+        <p>Please turn off any Cookie blockers or VPNs to access your results.</p>
       </article>
 
       <footer>
