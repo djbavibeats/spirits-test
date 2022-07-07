@@ -3,6 +3,7 @@
     <ValidationObserver v-slot="{ invalid }" slim>
       <article>
         <p>Thanks for taking the Spirits Test. To reveal your Spirit Type simply provide the info requested below.</p>
+        
 
         <form name="subjects" method="post" autocomplete="off" @submit.prevent="submit" netlify>
           <input type="hidden" name="form-name" value="subjects">
@@ -62,7 +63,10 @@ export default {
             path: '/result'
           })
         })
-        .catch(err => console.error("Please disable your VPN/AdBlocker " + err))   
+        .catch(err => {
+          console.error("Please disable your VPN/AdBlocker " + err)
+          alert('Please turn off any Cookie blockers or VPN to access your results')
+        })   
       .catch(error => {
         console.log(error)
       })

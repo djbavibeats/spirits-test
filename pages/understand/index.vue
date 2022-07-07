@@ -1,12 +1,18 @@
 <template>
 
 <section class="understanding-section">
-    <article>
+    <article class="understanding-article">
         <p>Understanding the Chart</p>
         <div class="elements-container">
-            <img src="/images/understand/elements.png" />
+            <!-- <img src="/images/understand/elements.png" />
             <img src="/images/understand/paths.png" />
+            <img src="/images/understand/perceptions.png" /> -->
+
+            <img src="/images/understand/understanding.png" />
+            <img src="/images/understand/elements.png" />
             <img src="/images/understand/perceptions.png" />
+            <img src="/images/understand/dualities.png" />
+            <img src="/images/understand/paths.png" />
         </div>
         <footer style="position: relative;">
             <div class="gap-2.5 grid grid-flow-col-dense items-center understand-buttons">
@@ -64,5 +70,9 @@ img {
 .understanding-section {
     display: block;
     padding-top: 4rem;
+}
+
+.understanding-article {
+    margin: 0 auto;
 }
 </style>
